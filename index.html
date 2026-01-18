@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hitesh | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <h2 class="logo">Hitesh</h2>
+
+  <div class="menu-icon" id="menuIcon">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner" id="heroInner">
+    <h1>Hi, I'm <span>Hitesh</span></h1>
+    <h3 id="typing"></h3>
+
+    <div class="hero-buttons">
+      <a href="assets/resume.pdf" download class="btn">Download Resume</a>
+      <a href="#projects" class="btn outline">View Projects</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/Hiteshkashyap04"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/hitesh-kashyap04/"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Computer Science student at Bahra University with strong fundamentals in
+    Java, DSA, and real-world project building.
+  </p>
+
+  <div class="highlights">
+    <div>💻 Java & DSA</div>
+    <div>🚀 Project Driven</div>
+    <div>🧠 AI & ML</div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div><i class="fab fa-java"></i><span>Java</span></div>
+    <div><i class="fab fa-python"></i><span>Python</span></div>
+    <div><i class="fab fa-js"></i><span>JavaScript</span></div>
+    <div><i class="fab fa-html5"></i><span>HTML</span></div>
+    <div><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+    <div><i class="fab fa-git-alt"></i><span>Git</span></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <span>2025</span>
+      <h3>AI Quiz Builder</h3>
+      <p>AI-powered quiz generation platform.</p>
+    </div>
+    <div class="timeline-item">
+      <span>2024</span>
+      <h3>Plant Disease Detection</h3>
+      <p>ML-based leaf disease classifier.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project-card" id="project-quiz">
+    <h3>AI Quiz Builder</h3>
+    <p>Click to view details</p>
+  </div>
+
+  <div class="project-card" id="project-plant">
+    <h3>Plant Disease Detection</h3>
+    <p>Click to view details</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-wrapper">
+    
+    <div class="contact-card">
+      <div class="icon"><i class="fas fa-envelope"></i></div>
+      <div class="info">
+        <h3>Email</h3>
+        <p id="emailText">hiteshkashyap@example.com</p>
+      </div>
+      <button class="copy-btn" id="copyBtn" title="Copy Email">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>
+
+    <a href="https://www.linkedin.com/in/hitesh-kashyap04/" target="_blank" class="contact-card link">
+      <div class="icon"><i class="fab fa-linkedin"></i></div>
+      <div class="info">
+        <h3>LinkedIn</h3>
+        <p>linkedin.com/in/hitesh</p>
+      </div>
+      <div class="arrow"><i class="fas fa-external-link-alt"></i></div>
+    </a>
+
+  </div>
+</section>
+
+<div class="modal" id="projectModal">
+  <div class="modal-content" id="modalContent">
+    <span class="close" id="closeBtn">×</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
