@@ -3,136 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hitesh | Portfolio</title>
+  <title>Hitesh Kashyap | Portfolio</title>
+  <meta name="description" content="Hitesh Kashyap — Computer Science student building Java, AI/ML, and frontend projects.">
+  <meta name="theme-color" content="#040810">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Hitesh Kashyap | Portfolio">
+  <meta property="og:description" content="Student developer building polished systems with Java, AI/ML, and responsive frontend.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="background-orb orb-one" aria-hidden="true"></div>
+  <div class="background-orb orb-two" aria-hidden="true"></div>
 
-<nav class="navbar">
-  <h2 class="logo">Hitesh</h2>
-
-  <div class="menu-icon" id="menuIcon">
-    <span></span><span></span><span></span>
-  </div>
-
-  <ul id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<header class="hero">
-  <div class="hero-inner" id="heroInner">
-    <h1>Hi, I'm <span>Hitesh</span></h1>
-    <h3 id="typing"></h3>
-
-    <div class="hero-buttons">
-      <a href="assets/resume.pdf" download class="btn">Download Resume</a>
-      <a href="#projects" class="btn outline">View Projects</a>
-    </div>
-
-    <div class="socials">
-      <a href="https://github.com/Hiteshkashyap04"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/hitesh-kashyap04/"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    Computer Science student at Bahra University with strong fundamentals in
-    Java, DSA, and real-world project building.
-  </p>
-
-  <div class="highlights">
-    <div>💻 Java & DSA</div>
-    <div>🚀 Project Driven</div>
-    <div>🧠 AI & ML</div>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div><i class="fab fa-java"></i><span>Java</span></div>
-    <div><i class="fab fa-python"></i><span>Python</span></div>
-    <div><i class="fab fa-js"></i><span>JavaScript</span></div>
-    <div><i class="fab fa-html5"></i><span>HTML</span></div>
-    <div><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-    <div><i class="fab fa-git-alt"></i><span>Git</span></div>
-  </div>
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <span>2025</span>
-      <h3>AI Quiz Builder</h3>
-      <p>AI-powered quiz generation platform.</p>
-    </div>
-    <div class="timeline-item">
-      <span>2024</span>
-      <h3>Plant Disease Detection</h3>
-      <p>ML-based leaf disease classifier.</p>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project-card" id="project-quiz">
-    <h3>AI Quiz Builder</h3>
-    <p>Click to view details</p>
-  </div>
-
-  <div class="project-card" id="project-plant">
-    <h3>Plant Disease Detection</h3>
-    <p>Click to view details</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact-wrapper">
-    
-    <div class="contact-card">
-      <div class="icon"><i class="fas fa-envelope"></i></div>
-      <div class="info">
-        <h3>Email</h3>
-        <p id="emailText">hiteshkashyap@example.com</p>
-      </div>
-      <button class="copy-btn" id="copyBtn" title="Copy Email">
-        <i class="fas fa-copy"></i>
-      </button>
-    </div>
-
-    <a href="https://www.linkedin.com/in/hitesh-kashyap04/" target="_blank" class="contact-card link">
-      <div class="icon"><i class="fab fa-linkedin"></i></div>
-      <div class="info">
-        <h3>LinkedIn</h3>
-        <p>linkedin.com/in/hitesh</p>
-      </div>
-      <div class="arrow"><i class="fas fa-external-link-alt"></i></div>
+  <nav class="navbar">
+    <a class="brand" href="#top" aria-label="Hitesh Kashyap home">
+      <span class="brand-mark">HK</span>
+      <span class="brand-copy">
+        <strong>Hitesh</strong>
+        <small>Portfolio interface</small>
+      </span>
     </a>
 
-  </div>
-</section>
+    <div class="menu-icon" id="menuIcon" aria-label="Toggle navigation" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
 
-<div class="modal" id="projectModal">
-  <div class="modal-content" id="modalContent">
-    <span class="close" id="closeBtn">×</span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-  </div>
-</div>
+    <ul id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<script src="script.js"></script>
+  <header class="hero" id="top">
+    <div class="hero-inner" id="heroInner">
+      <div class="hero-copy">
+        <p class="eyebrow">System online // portfolio transmission active</p>
+        <h1>Hi, I'm <span>Hitesh</span></h1>
+        <h2 id="typing" aria-live="polite"></h2>
+        <p class="hero-lead">
+          I design and build clean, intelligent experiences with a sci-fi visual language, fast performance, and a strong mobile-first structure.
+        </p>
+
+        <div class="hero-actions">
+          <a href="assets/resume.pdf" download class="btn primary">Download Resume</a>
+          <a href="#projects" class="btn secondary">View Projects</a>
+        </div>
+
+        <div class="socials" aria-label="Social links">
+          <a href="https://github.com/Hiteshkashyap04" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/hitesh-kashyap04/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-value">Java</span>
+            <span class="stat-label">Core language</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">AI + ML</span>
+            <span class="stat-label">Learning focus</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value">Frontend</span>
+            <span class="stat-label">Responsive builds</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Portfolio overview">
+        <div class="panel-shell">
+          <div class="panel-top">
+            <div class="scan-ring">
+              <span>HK</span>
+            </div>
+            <div>
+              <p class="panel-kicker">Mission profile</p>
+              <h3>Student developer building polished systems</h3>
+            </div>
+          </div>
+
+          <div class="panel-data">
+            <div>
+              <span>Focus</span>
+              <strong>AI, Java, DSA</strong>
+            </div>
+            <div>
+              <span>Mode</span>
+              <strong>Prototype to production</strong>
+            </div>
+            <div>
+              <span>Style</span>
+              <strong>Glass, grid, glow</strong>
+            </div>
+          </div>
+
+          <div class="terminal-box">
+            <span class="terminal-label">Command feed</span>
+            <p>Designing responsive interfaces with animated depth, clean information architecture, and strong visual rhythm.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="reveal-section">
+      <div class="section-heading">
+        <p class="section-kicker">01 / About</p>
+        <h2>Built for modern interfaces</h2>
+      </div>
+
+      <div class="section-grid about-grid">
+        <div class="content-panel">
+          <p>
+            I am a Computer Science student at Bahra University focused on practical development, algorithmic thinking, and AI-powered products.
+          </p>
+          <p>
+            My approach is to keep interfaces sharp, responsive, and expressive while making sure the structure stays simple to maintain and easy to scale.
+          </p>
+        </div>
+
+        <div class="data-panel">
+          <div class="data-row">
+            <span>Education</span>
+            <strong>B.Tech Computer Science</strong>
+          </div>
+          <div class="data-row">
+            <span>Strengths</span>
+            <strong>Java, DSA, UI systems</strong>
+          </div>
+          <div class="data-row">
+            <span>Direction</span>
+            <strong>AI applications and frontend craft</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlights">
+        <div>Project driven</div>
+        <div>AI and ML curious</div>
+        <div>Performance conscious</div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal-section">
+      <div class="section-heading">
+        <p class="section-kicker">02 / Skills</p>
+        <h2>Core systems and tools</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fab fa-java"></i><span>Java</span></div>
+        <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
+        <div class="skill-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="fab fa-html5"></i><span>HTML</span></div>
+        <div class="skill-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+        <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal-section">
+      <div class="section-heading">
+        <p class="section-kicker">03 / Experience</p>
+        <h2>Project timeline</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <span>2025</span>
+          <h3>AI Quiz Builder</h3>
+          <p>AI-assisted quiz generation platform with a structured experience and streamlined frontend flow.</p>
+        </article>
+        <article class="timeline-item">
+          <span>2024</span>
+          <h3>Plant Disease Detection</h3>
+          <p>Machine-learning classifier designed to identify leaf disease patterns from image input.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal-section">
+      <div class="section-heading">
+        <p class="section-kicker">04 / Projects</p>
+        <h2>Selected builds</h2>
+      </div>
+
+      <div id="projectsGrid" class="projects-grid"></div>
+    </section>
+
+    <section id="contact" class="reveal-section">
+      <div class="section-heading">
+        <p class="section-kicker">05 / Contact</p>
+        <h2>Start a transmission</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-stack">
+          <div class="contact-card">
+            <div class="icon"><i class="fas fa-envelope"></i></div>
+            <div class="info">
+              <h3>Email</h3>
+              <p id="emailText">hiteshkashyap094@gmail.com</p>
+            </div>
+            <button class="copy-btn" id="copyBtn" type="button" title="Copy Email">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+
+          <a href="https://www.linkedin.com/in/hitesh-kashyap04/" target="_blank" rel="noreferrer" class="contact-card link">
+            <div class="icon"><i class="fab fa-linkedin"></i></div>
+            <div class="info">
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/hitesh-kashyap04</p>
+            </div>
+            <div class="arrow"><i class="fas fa-external-link-alt"></i></div>
+          </a>
+        </div>
+
+        <div class="contact-panel">
+          <p class="panel-kicker">Availability</p>
+          <h3>Open to internships, projects, and collaboration</h3>
+          <p>
+            If you need a developer who can turn a concept into a responsive interface with strong visual identity, I'm ready to build it.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
