@@ -12,7 +12,7 @@ const PROJECTS = [
     title: 'AI Quiz Builder',
     tag: 'AI / Product',
     shortDesc: 'Dynamic quiz generation with a focused learning workflow.',
-    url: 'https://wthitesh.vercel.app/',
+    url: 'https://github.com/Hiteshkashyap04',
     github: 'https://github.com/Hiteshkashyap04',
   },
   {
