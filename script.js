@@ -1,3 +1,5 @@
+'use strict';
+
 // ─── PROJECTS ─────────────────────────────────────────────────────────────────
 // Add, remove, or modify projects here.
 // Fields:
@@ -10,17 +12,17 @@
 const PROJECTS = [
   {
     title: 'AI Quiz Builder',
-    tag: 'AI / Product',
-    shortDesc: 'Dynamic quiz generation with a focused learning workflow.',
-    url: 'https://github.com/Hiteshkashyap04',
-    github: 'https://github.com/Hiteshkashyap04',
+    tag: 'AI / Full Stack',
+    shortDesc: 'AI-powered quiz generation with a focused, responsive learning workflow.',
+    url: 'https://ai-quiz-builder-hitesh.vercel.app/',
+    github: 'https://github.com/Hiteshkashyap04/ai-quiz-builder',
   },
   {
-    title: 'Plant Disease Detection',
-    tag: 'ML / Vision',
-    shortDesc: 'Image-based diagnosis for faster agricultural insight.',
-    url: 'https://github.com/Hiteshkashyap04',
-    github: 'https://github.com/Hiteshkashyap04',
+    title: 'Behavioral Pattern Analysis System',
+    tag: 'AI / NLP',
+    shortDesc: 'Emotion, sentiment, stress, and confidence analysis from user text.',
+    url: 'https://huggingface.co/spaces/wthitesh/behavioral-pattern-analysis',
+    github: 'https://github.com/Hiteshkashyap04/behavioral-pattern-analysis',
   },
 ];
 
@@ -56,6 +58,7 @@ class ParticleSystem {
     for (let i = 0; i < this.count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const speed = 0.08 + Math.random() * 0.18;
+
       this.particles.push({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
@@ -88,7 +91,15 @@ class ParticleSystem {
   loop() {
     if (!this.running) return;
 
-    const { ctx, canvas, particles, mouse, CONNECTION_DIST, MOUSE_RADIUS } = this;
+    const {
+      ctx,
+      canvas,
+      particles,
+      mouse,
+      CONNECTION_DIST,
+      MOUSE_RADIUS,
+    } = this;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (const p of particles) {
@@ -100,6 +111,7 @@ class ParticleSystem {
       if (dist < MOUSE_RADIUS && dist > 0) {
         const t = 1 - dist / MOUSE_RADIUS;
         const force = t * t * 0.055;
+
         p.vx += (dx / dist) * force;
         p.vy += (dy / dist) * force;
       }
@@ -110,6 +122,7 @@ class ParticleSystem {
 
       // Soft speed cap
       const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+
       if (spd > 2.2) {
         p.vx = (p.vx / spd) * 2.2;
         p.vy = (p.vy / spd) * 2.2;
@@ -121,11 +134,14 @@ class ParticleSystem {
       // Wrap edges
       if (p.x < -6) p.x = canvas.width + 6;
       else if (p.x > canvas.width + 6) p.x = -6;
+
       if (p.y < -6) p.y = canvas.height + 6;
       else if (p.y > canvas.height + 6) p.y = -6;
 
       // Brightness boost near cursor
-      const nearFactor = dist < MOUSE_RADIUS ? (1 - dist / MOUSE_RADIUS) : 0;
+      const nearFactor =
+        dist < MOUSE_RADIUS ? 1 - dist / MOUSE_RADIUS : 0;
+
       const alpha = 0.28 + nearFactor * 0.48;
       const radius = p.r + nearFactor * 1.4;
 
@@ -143,15 +159,20 @@ class ParticleSystem {
         const d = Math.sqrt(ddx * ddx + ddy * ddy);
 
         if (d < CONNECTION_DIST) {
-          // Connections near cursor are slightly more visible
           const midX = (particles[i].x + particles[j].x) / 2;
           const midY = (particles[i].y + particles[j].y) / 2;
           const mdx = mouse.x - midX;
           const mdy = mouse.y - midY;
           const mouseDist = Math.sqrt(mdx * mdx + mdy * mdy);
-          const mouseBoost = mouseDist < MOUSE_RADIUS ? (1 - mouseDist / MOUSE_RADIUS) * 0.12 : 0;
 
-          const alpha = (1 - d / CONNECTION_DIST) * 0.055 + mouseBoost;
+          const mouseBoost =
+            mouseDist < MOUSE_RADIUS
+              ? (1 - mouseDist / MOUSE_RADIUS) * 0.12
+              : 0;
+
+          const alpha =
+            (1 - d / CONNECTION_DIST) * 0.055 + mouseBoost;
+
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
@@ -173,7 +194,8 @@ function renderProjects() {
   if (!grid) return;
 
   if (PROJECTS.length === 0) {
-    grid.innerHTML = '<p style="color:var(--muted);padding:20px 0">No projects added yet.</p>';
+    grid.innerHTML =
+      '<p style="color:var(--muted);padding:20px 0">No projects added yet.</p>';
     return;
   }
 
@@ -216,13 +238,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroInner = document.getElementById('heroInner');
   const copyBtn = document.getElementById('copyBtn');
   const emailText = document.getElementById('emailText');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
 
   // ── Render projects
   renderProjects();
 
   // ── Particle system
   const canvas = document.getElementById('particleCanvas');
+
   if (canvas && !reducedMotion) {
     new ParticleSystem(canvas);
   }
@@ -239,8 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   menuIcon?.addEventListener('click', toggleMenu);
+
   menuIcon?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
   });
 
   navItems.forEach((item) => item.addEventListener('click', closeMenu));
@@ -251,10 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Typing effect
   const textLines = [
-    'Computer Science Student',
+    'Software Developer',
     'Java Developer',
     'AI and ML Enthusiast',
-    'Responsive Interface Builder',
+    'Full Stack Builder',
   ];
 
   let lineIndex = 0;
@@ -263,7 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const tick = () => {
     if (!typingEl) return;
+
     const line = textLines[lineIndex];
+
     charOffset += deleting ? -1 : 1;
     typingEl.textContent = line.slice(0, charOffset);
 
@@ -282,15 +313,22 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (typingEl) {
-    reducedMotion ? (typingEl.textContent = textLines[0]) : tick();
+    reducedMotion
+      ? (typingEl.textContent = textLines[0])
+      : tick();
   }
 
   // ── Hero parallax
   if (!reducedMotion && heroInner) {
     window.addEventListener('mousemove', (e) => {
-      if (window.innerWidth < 900) { heroInner.style.transform = ''; return; }
+      if (window.innerWidth < 900) {
+        heroInner.style.transform = '';
+        return;
+      }
+
       const x = (window.innerWidth / 2 - e.clientX) / 65;
       const y = (window.innerHeight / 2 - e.clientY) / 65;
+
       heroInner.style.transform = `translate3d(${x}px,${y}px,0)`;
     });
   }
@@ -316,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       navigator.clipboard.writeText(email).then(() => {
         const icon = copyBtn.querySelector('i');
+
         icon?.classList.replace('fa-copy', 'fa-check');
         copyBtn.classList.add('copied');
 
